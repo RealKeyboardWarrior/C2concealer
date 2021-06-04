@@ -95,7 +95,7 @@ def main():
 	#else:
 	print("[i] Building random C2 malleable profile with " + str(variant_count) + " variants.")
 	retryCount = 0
-	while(retryCount < 10):
+	while(True):
 		profile = Profile(ssl_dict, hostname=hostname)
 		profile.randomizer()
 		profile.consistencyCheck()
@@ -126,7 +126,7 @@ def main():
 			retryCount+=1
 			os.remove((os.getcwd() + '/' + profile.globalOptions.sample_name + '.profile'))	
 
-		print("[-] Attempted to create 10 profiles. All 10 failed c2lint check.")
+		print("[-] Attempted to create 10,000 profiles. All 10,000 failed c2lint check.")
 		print("[i] If you selected a large amount of variants, please retry again.")
 		print("[x] Exiting program.")
 		sys.exit()

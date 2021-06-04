@@ -36,7 +36,6 @@ def sslOptionSelection():
 		except ValueError:
 			print("[x] Invalid SSL choice. Must be an integer. Try again.")
 	'''
-		
 
 def variantCountSelection():
 	'''
@@ -95,7 +94,7 @@ def buildSelfSignedSSL():
 		country = "US" #userInputNoPunct("What is the country abbr? (ex: US)\n> ")
 		locality = "Mountainview" #userInputNoPunct("What is the city? (ex: Mountainview)\n> ")
 		state = "CA" #userInputNoPunct("What is the state? (ex: CA)\n> ")
-		validity = 365 #userInputOnlyNum("How long is it valid (in days)? (ex: 365)\n> ")
+		validity = "365" #userInputOnlyNum("How long is it valid (in days)? (ex: 365)\n> ")
 		print("")
 		print("[i] Here's how your certificate will read")
 		print("\tCommon Name: {}".format(common_name))
