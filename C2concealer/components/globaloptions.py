@@ -41,7 +41,7 @@ class globalOptions(object):
 
 		'''
 		
-		self.sample_name = str(uuid.uuid4())[:8]
+		self.sample_name = "cobaltstrike"
 		self.sleeptime = str(random.randint(55000,65000))
 		self.jitter = str(random.randrange(37,45,2))
 		self.tcp_port = str(random.choice((list(range(1024,4442))+list(range(4447,10000)))))

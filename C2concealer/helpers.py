@@ -23,7 +23,9 @@ def sslOptionSelection():
 	'''
 	Function for user to select 1, 2, 3 or 4 input.
 	'''
-
+	# NVISO(fmathieu): force returning of self-signed ssl
+	return 1
+	'''
 	while True:
 		try:
 			ssl_choice = int(input("[?] Option [1/2/3/4]: "))
@@ -33,6 +35,7 @@ def sslOptionSelection():
 			return ssl_choice
 		except ValueError:
 			print("[x] Invalid SSL choice. Must be an integer. Try again.")
+	'''
 		
 
 def variantCountSelection():
@@ -86,12 +89,13 @@ def buildSelfSignedSSL():
 	'''
 	while True:
 		print("Certificate Details:")
-		common_name = input("What is the host? (ex: google.com)\n> ")
-		organization = userInputNoPunct("What is the organization? (ex: Google)\n> ")
-		country = userInputNoPunct("What is the country abbr? (ex: US)\n> ")
-		locality = userInputNoPunct("What is the city? (ex: Mountainview)\n> ")
-		state = userInputNoPunct("What is the state? (ex: CA)\n> ")
-		validity = userInputOnlyNum("How long is it valid (in days)? (ex: 365)\n> ")
+		# NVISO(fmathieu): force default values no stdin
+		common_name = "aws.amazon.com" #input("What is the host? (ex: google.com)\n> ")
+		organization = "Amazon" #userInputNoPunct("What is the organization? (ex: Google)\n> ")
+		country = "US" #userInputNoPunct("What is the country abbr? (ex: US)\n> ")
+		locality = "Mountainview" #userInputNoPunct("What is the city? (ex: Mountainview)\n> ")
+		state = "CA" #userInputNoPunct("What is the state? (ex: CA)\n> ")
+		validity = 365 #userInputOnlyNum("How long is it valid (in days)? (ex: 365)\n> ")
 		print("")
 		print("[i] Here's how your certificate will read")
 		print("\tCommon Name: {}".format(common_name))
@@ -100,7 +104,7 @@ def buildSelfSignedSSL():
 		print("\tState: {}".format(state))
 		print("\tCountry: {}".format(country))
 		print("\tValidity: {}".format(validity))
-		correct_SSL = input("\n[?] Is this correct? [y/n] ")
+		correct_SSL = 'y' #input("\n[?] Is this correct? [y/n] ")
 		if correct_SSL == 'y' or correct_SSL == '':
 			self_ssl_dict = {
 			'CN':common_name,
